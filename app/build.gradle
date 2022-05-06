@@ -14,8 +14,8 @@ android {
         targetSdk 32
         versionCode 1
         versionName "1.0"
+        viewBinding.enabled = true
 
-//        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         testInstrumentationRunner "com.example.androidtestpractice.CustomTestRunner"
 
     }
@@ -54,7 +54,7 @@ dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.6.0'
 
     // Room
     ext.roomVersion = "2.4.2"
@@ -63,7 +63,7 @@ dependencies {
     implementation("androidx.room:room-ktx:$roomVersion")
 
     // Hilt
-    implementation("com.google.dagger:hilt-android:2.38.1")
+    implementation("com.google.dagger:hilt-android:2.41")
     kapt("com.google.dagger:hilt-android-compiler:2.38.1")
 
     // Retrofit
@@ -85,7 +85,7 @@ dependencies {
     // room test
     androidTestImplementation("androidx.room:room-testing:$roomVersion")
     // coroutine test
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.4.2"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2"
 
     // MockWebServer
     androidTestImplementation("com.squareup.okhttp3:mockwebserver:4.9.3")
@@ -102,4 +102,13 @@ dependencies {
     // ...with Kotlin.
     kaptAndroidTest("com.google.dagger:hilt-android-compiler:2.38.1")
     kaptTest "com.google.dagger:hilt-android-compiler:2.38.1"
+
+    //navigation componenet
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+
+    //Lifecycle
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
 }
