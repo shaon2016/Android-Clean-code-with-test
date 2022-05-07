@@ -1,16 +1,21 @@
 package com.shaon2016.cleancodewithtest.di
 
+import android.content.Context
 import com.shaon2016.cleancodewithtest.BuildConfig
+import com.shaon2016.cleancodewithtest.data.local.RoomHelper
+import com.shaon2016.cleancodewithtest.data.remote.ApiHelper
 import com.shaon2016.cleancodewithtest.data.remote.IApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Qualifier
 import javax.inject.Singleton
 
 @Module
@@ -64,5 +69,27 @@ open class AppModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit): IApiService {
         return retrofit.create(IApiService::class.java)
+    }
+
+    @Qualifier
+    @Retention(AnnotationRetention.RUNTIME)
+    annotation class LocalRoomHelper
+
+    @Provides
+    @Singleton
+    @LocalRoomHelper
+    fun provideRoomHelper(@ApplicationContext context: Context): RoomHelper {
+        return RoomHelper(context)
+    }
+
+    @Qualifier
+    @Retention(AnnotationRetention.RUNTIME)
+    annotation class RemoteApiHelper
+
+    @Provides
+    @RemoteApiHelper
+    @Singleton
+    fun provideApiHelper(apiService: IApiService): ApiHelper {
+        return ApiHelper(apiService)
     }
 }

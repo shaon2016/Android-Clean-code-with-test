@@ -6,8 +6,7 @@ import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
 
-
-class ApiHelper(val apiService: IApiService) {
+class ApiHelper(private val apiService: IApiService) {
     //call type
     companion object {
         const val CALL_TYPE_GET = "get"
@@ -15,9 +14,6 @@ class ApiHelper(val apiService: IApiService) {
         const val CALL_TYPE_POST_WITH_DOCUMENT = "post with document"
         const val CALL_TYPE_PAGING = "paging"
 
-        //endpoint
-         const val productSearchUrl = "sites/MLU/search";
-         const val productDetailUrl = "items";
     }
 
     suspend fun <T> getApiCallObservable(

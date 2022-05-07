@@ -25,13 +25,13 @@ class CartDaoTest {
     var instantExecutorRule = InstantTaskExecutorRule()
 
     private lateinit var context: Context
-    private lateinit var db: AppDb
+    private lateinit var db: RoomDb
     private lateinit var dao: CartDao
 
     @Before
     fun setup() {
         context = ApplicationProvider.getApplicationContext()
-        db = Room.inMemoryDatabaseBuilder(context, AppDb::class.java)
+        db = Room.inMemoryDatabaseBuilder(context, RoomDb::class.java)
             .allowMainThreadQueries()
             .build()
         dao = db.cartDao()

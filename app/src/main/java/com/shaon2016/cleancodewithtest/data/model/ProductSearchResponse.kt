@@ -2,7 +2,7 @@ package com.shaon2016.cleancodewithtest.data.model
 
 data class ProductSearchResponse(
     val paging: Paging,
-    val results: List<Result>
+    val results: List<Product>
 )
 
 data class Paging(
@@ -12,7 +12,7 @@ data class Paging(
     val total: String
 )
 
-data class Result(
+data class Product(
     val id: String,
     val price: String,
     val thumbnail: String,

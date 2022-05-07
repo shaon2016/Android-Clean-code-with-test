@@ -29,6 +29,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
+        applicationVariants.all { variant ->
+            variant.outputs.all {
+                outputFileName = "CleanCodeTest-v${variant.versionCode}-${variant.versionName}-${new Date().format('ddMMyy_HHmm')}-${variant.flavorName}-${variant.buildType.name}.apk"
+            }
+        }
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -42,11 +48,17 @@ android {
         resources.excludes.add("META-INF/*")
     }
 
-//    sourceSets {
-//        androidTest {
-//            resources.srcDirs += ['src/androidTest/resource']
-//        }
-//    }
+    flavorDimensions "version"
+    productFlavors {
+        demo {
+            dimension "version"
+            buildConfigField "String", "SERVER_URL", '"https://api.mercadolibre.com/"'
+        }
+        live {
+            dimension "version"
+            buildConfigField "String", "SERVER_URL", 'https://api.mercadolibre.com/"'
+        }
+    }
 
 }
 

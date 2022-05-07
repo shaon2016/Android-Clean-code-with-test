@@ -5,7 +5,7 @@ import com.shaon2016.cleancodewithtest.data.network.Helper.setResponse
 import com.shaon2016.cleancodewithtest.data.remote.IApiService
 import com.google.common.truth.Truth.assertThat
 import com.google.gson.Gson
-import com.shaon2016.cleancodewithtest.data.remote.AppUrl
+import com.shaon2016.cleancodewithtest.data.remote.ApiUrl
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockWebServer
@@ -39,7 +39,7 @@ class ProductSearchAPITest {
             mockWebServer.setResponse("product_search_success_response.json", 200)
 
             val hashMap = HashMap<String, String>()
-            val responseBody = service.getRequest(AppUrl.productSearchUrl, hashMap).body()
+            val responseBody = service.getRequest(ApiUrl.productSearchUrl, hashMap).body()
 
             assertThat(responseBody).isNotNull()
         }
@@ -57,7 +57,7 @@ class ProductSearchAPITest {
             hashMap["q"] = "notebook"
             hashMap["limit"] = "1"
 
-            val responseBody = service.getRequest(AppUrl.productSearchUrl, hashMap).body()
+            val responseBody = service.getRequest(ApiUrl.productSearchUrl, hashMap).body()
 
             //Request received by the mock server
             val request = mockWebServer.takeRequest()
@@ -74,7 +74,7 @@ class ProductSearchAPITest {
                 mockWebServer.setResponse("product_search_success_response.json", 404)
 
                 val hashMap = HashMap<String, String>()
-                val responseBody = service.getRequest(AppUrl.productSearchUrl, hashMap)
+                val responseBody = service.getRequest(ApiUrl.productSearchUrl, hashMap)
 
                 assertThat(responseBody.isSuccessful).isFalse()
             } catch (e: Exception) {
@@ -90,7 +90,7 @@ class ProductSearchAPITest {
             mockWebServer.setResponse("product_search_success_response.json", 200)
 
             val hashMap = HashMap<String, String>()
-            val responseBody = service.getRequest(AppUrl.productSearchUrl, hashMap).body()
+            val responseBody = service.getRequest(ApiUrl.productSearchUrl, hashMap).body()
 
             val responseData = Gson().fromJson(responseBody?.string(), ProductSearchResponse::class.java)
 
