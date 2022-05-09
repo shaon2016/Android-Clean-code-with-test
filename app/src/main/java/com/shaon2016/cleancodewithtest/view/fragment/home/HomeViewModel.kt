@@ -21,34 +21,35 @@ class HomeViewModel @Inject constructor(private val homeRepoImpl: HomeRepoImpl) 
 
     init {
         loadPreviousSearchedList()
-
-        loadSearchedProduct()
     }
 
     private fun loadPreviousSearchedList() {
         // TODO load from local
     }
 
-    fun loadSearchedProduct() {
-        viewModelScope.launch {
-            onLoading(true)
 
-            val result = homeRepoImpl.getSearchedProducts("notebook")
+    fun doSearch(query: String) {
+        if (query.isNotEmpty()) {
+            viewModelScope.launch {
+                onLoading(true)
 
-            when (result) {
-                is Result.Success -> {
-                    if (result.succeeded) {
-                        _products.value = result.data.results
-                    } else {
-                        // TODO handle others
+                val result = homeRepoImpl.getSearchedProducts(query)
+
+                when (result) {
+                    is Result.Success -> {
+                        if (result.succeeded) {
+                            _products.value = result.data.results
+                        } else {
+                            // TODO handle others
+                        }
+                    }
+                    is Result.Error -> {
+                        // TODO handle error
                     }
                 }
-                is Result.Error -> {
-                    // TODO handle error
-                }
-            }
 
-            onLoading(false)
+                onLoading(false)
+            }
         }
     }
 }

@@ -41,8 +41,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     override fun viewRelatedTask() {
-        // TODO to test data load or not
-        viewModel.loadSearchedProduct()
 
         viewModel.isLoading.observe(viewLifecycleOwner) {
             it?.let {
@@ -52,14 +50,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
         }
         viewModel.products.observe(viewLifecycleOwner) {
             it?.let {
+                adapter.datas.clear()
                 adapter.addData(it as ArrayList<Product>)
             }
         }
 
         initRv()
+
+        binding.ivSearch.setOnClickListener {
+            viewModel.doSearch(binding.evSearch.text.toString())
+        }
     }
 
     private fun initRv() {
+        binding.rList.setHasFixedSize(true)
         binding.rList.layoutManager = LinearLayoutManager(requireContext())
         binding.rList.adapter = adapter
     }
