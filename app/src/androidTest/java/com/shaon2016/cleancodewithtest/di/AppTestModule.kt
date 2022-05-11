@@ -1,6 +1,5 @@
-package com.shaon2016.cleancodewithtest.data.network
+package com.shaon2016.cleancodewithtest.di
 
-import com.shaon2016.cleancodewithtest.di.AppModule
 import dagger.Module
 import dagger.hilt.components.SingletonComponent
 import dagger.hilt.testing.TestInstallIn
@@ -10,6 +9,6 @@ import dagger.hilt.testing.TestInstallIn
     components = [SingletonComponent::class],
     replaces = [AppModule::class]
 )
-class MockNetworkModule : AppModule() {
-    override var baseUrl = "https://localhost:8000"
+class AppTestModule : AppModule() {
+    override var baseUrl = "http://127.0.0.1:8080"
 }

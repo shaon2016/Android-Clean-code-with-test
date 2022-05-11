@@ -1,4 +1,4 @@
-package com.shaon2016.cleancodewithtest
+package com.shaon2016.cleancodewithtest.util
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer

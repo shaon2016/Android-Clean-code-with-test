@@ -1,12 +1,12 @@
-package com.shaon2016.cleancodewithtest.data.network
+package com.shaon2016.cleancodewithtest.home
 
 import com.shaon2016.cleancodewithtest.data.network.Helper.setResponse
-import com.shaon2016.cleancodewithtest.data.remote.ApiHelper
 import com.shaon2016.cleancodewithtest.data.remote.IApiService
-import com.google.common.truth.Truth
-import com.shaon2016.cleancodewithtest.data.remote.ApiUrl
+import com.shaon2016.cleancodewithtest.di.AppModule
+import com.shaon2016.cleancodewithtest.repo.home.HomeRepoImpl
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import dagger.hilt.android.testing.UninstallModules
 import kotlinx.coroutines.runBlocking
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.After
@@ -16,37 +16,34 @@ import org.junit.Test
 import javax.inject.Inject
 
 @HiltAndroidTest
-class ProductDetailTest {
+class HomeScreenApiTest {
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
+
+    @Before
+    fun init() {
+        hiltRule.inject()
+    }
 
     private lateinit var mockWebServer: MockWebServer
 
     @Inject
-    lateinit var service: IApiService
+    lateinit var homeRepoImpl: HomeRepoImpl
 
     @Before
     fun setup() {
-        hiltRule.inject()
         mockWebServer = MockWebServer()
-        mockWebServer.start(8000)
+        mockWebServer.start(8080)
     }
 
     @After
-    fun teardown() {
+    fun tearDown() {
         mockWebServer.shutdown()
     }
 
     @Test
-    fun productDetailsMockResponseNotNull() {
+    fun productSearchMockResponseNotNull() = runBlocking {
+        mockWebServer.setResponse("product_search_success_response.json", 200)
 
-        runBlocking {
-            mockWebServer.setResponse("product_detail_success_response.json", 200)
-
-            val hashMap = HashMap<String, String>()
-            val responseBody = service.getRequest(ApiUrl.productDetailUrl, hashMap).body()
-
-            Truth.assertThat(responseBody).isNotNull()
-        }
     }
 }

@@ -2,6 +2,7 @@ package com.shaon2016.cleancodewithtest.data.network
 
 import androidx.test.platform.app.InstrumentationRegistry
 import com.shaon2016.cleancodewithtest.MyApp
+import dagger.hilt.android.testing.HiltTestApplication
 import okhttp3.mockwebserver.MockResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -41,7 +42,7 @@ object Helper {
     private fun readFileFromAssets(fileName: String): String {
         try {
             val inputStream = (InstrumentationRegistry.getInstrumentation().targetContext
-                .applicationContext as MyApp).assets.open(fileName)
+                .applicationContext as HiltTestApplication).assets.open(fileName)
             val builder = StringBuilder()
             val reader = InputStreamReader(inputStream, "UTF-8")
             reader.readLines().forEach {
