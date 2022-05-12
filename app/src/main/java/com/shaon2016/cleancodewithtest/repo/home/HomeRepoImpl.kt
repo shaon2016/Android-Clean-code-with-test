@@ -12,6 +12,4 @@ class HomeRepoImpl @Inject constructor(
     override suspend fun getSearchedProducts(query: String): Result<ProductSearchResponse> {
         return homeNetworkRepo.getSearchedProducts(query)
     }
-
-
 }

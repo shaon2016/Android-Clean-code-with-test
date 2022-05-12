@@ -1,7 +1,11 @@
 package com.shaon2016.cleancodewithtest.home
 
+import android.util.Log
+import com.google.common.truth.Truth.assertThat
+import com.shaon2016.cleancodewithtest.data.Result
 import com.shaon2016.cleancodewithtest.data.network.Helper.setResponse
 import com.shaon2016.cleancodewithtest.data.remote.IApiService
+import com.shaon2016.cleancodewithtest.data.succeeded
 import com.shaon2016.cleancodewithtest.di.AppModule
 import com.shaon2016.cleancodewithtest.repo.home.HomeRepoImpl
 import dagger.hilt.android.testing.HiltAndroidRule
@@ -23,6 +27,7 @@ class HomeScreenApiTest {
     @Before
     fun init() {
         hiltRule.inject()
+
     }
 
     private lateinit var mockWebServer: MockWebServer
@@ -45,5 +50,44 @@ class HomeScreenApiTest {
     fun productSearchMockResponseNotNull() = runBlocking {
         mockWebServer.setResponse("product_search_success_response.json", 200)
 
+        homeRepoImpl.getSearchedProducts("notebook").let { result ->
+            result as Result.Success
+
+            assertThat(result.data).isNotNull()
+
+            //Request received by the mock server
+            assertThat(result.data.results).hasSize(2)
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
