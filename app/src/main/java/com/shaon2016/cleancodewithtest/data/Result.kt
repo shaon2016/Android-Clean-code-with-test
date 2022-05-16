@@ -16,6 +16,9 @@
 
 package com.shaon2016.cleancodewithtest.data
 
+import okhttp3.ResponseBody
+import retrofit2.Response
+
 
 /**
  * A generic class that holds a value with its loading status.
