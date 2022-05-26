@@ -57,7 +57,7 @@ class MainActivityTest : BaseActivityTest() {
 
             onView(withId(R.id.rList)).perform(RecyclerViewActions.scrollToPosition<BaseViewHolder>(
                 1))
-            onView(withText("Notebook Lenovo Ideapad S145-15iil Platinum Gray 15.6 , Intel Core I3 1005g1 12gb De Ram 1tb Hdd 128gb Ssd, Intel Uhd Graphics G1 1366x768px Windows 10 Hom")).check(
+            onView(withText("Notebook Lenovo Ideapad S145-15iil Platinum Gray 15.6 , Intel Core I3 1005g1 12gb De Ram 1tb Hdd 128gb Ssd, Intel Uhd Graphics G1 1366x768px Windows 10 Home")).check(
                 matches(isDisplayed()))
 
         }
