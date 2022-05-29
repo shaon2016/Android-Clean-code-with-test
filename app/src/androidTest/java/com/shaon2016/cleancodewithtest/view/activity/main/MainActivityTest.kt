@@ -50,14 +50,13 @@ class MainActivityTest : BaseActivityTest() {
     @Test
     fun performSearchAndCheckDataInRecycler() {
         runTest {
-            mockWebServer.setResponse("product_search_success_response.json", 200)
+            mockWebServer.setResponse("product_search_success_response2.json", 200)
 
             onView(withId(R.id.evSearch)).perform(typeText("notebook"))
             onView(withId(R.id.ivSearch)).perform(click())
 
-            onView(withId(R.id.rList)).perform(RecyclerViewActions.scrollToPosition<BaseViewHolder>(
-                1))
-            onView(withText("Notebook Lenovo Ideapad S145-15iil Platinum Gray 15.6 , Intel Core I3 1005g1 12gb De Ram 1tb Hdd 128gb Ssd, Intel Uhd Graphics G1 1366x768px Windows 10 Home")).check(
+            onView(withId(R.id.rList)).perform(RecyclerViewActions.scrollToLastPosition<BaseViewHolder>())
+            onView(withText("Notebook Acer Aspire 5 A515-43 Silver 15.6 , Amd Ryzen 3 3200u 4gb De Ram 128gb Ssd, Amd Radeon Vega 3 1920x1080px Windows 10 Home")).check(
                 matches(isDisplayed()))
 
         }

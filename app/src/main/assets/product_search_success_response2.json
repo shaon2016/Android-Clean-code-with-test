@@ -1,0 +1,58 @@
+{
+  "paging": {
+    "total": 12629,
+    "primary_results": 1000,
+    "offset": 0,
+    "limit": 50
+  },
+  "results": [
+    {
+      "id": "MLU479145688",
+      "title": "Notebook Hp Stream Nueva Y En Español Win10 64gb 4gb Ram Loi",
+      "price": 354,
+      "thumbnail": "http://http2.mlstatic.com/D_603880-MLU48233986823_112021-O.jpg"
+    },
+    {
+      "id": "MLU604170084",
+      "title": "Notebook Lenovo Ideapad S145-15iil Platinum Gray 15.6 , Intel Core I3 1005g1 12gb De Ram 1tb Hdd 128gb Ssd, Intel Uhd Graphics G1 1366x768px Windows 10 Home",
+      "price": 799,
+      "thumbnail": "http://http2.mlstatic.com/D_800653-MLA48265149903_112021-I.jpg"
+    },
+    {
+      "id": "MLU607046096",
+      "title": "Notebook Asus Ultra Thin L510ma Star Black 15.6 , Intel Celeron N4020 4gb De Ram 128gb Ssd, Intel Uhd Graphics 600 1920x1080px Windows 10 Home",
+      "price": 437,
+      "thumbnail": "http://http2.mlstatic.com/D_832554-MLA48927859284_012022-I.jpg"
+    },
+    {
+      "id": "MLU479470772",
+      "title": "Notebook Lenovo Ideapad 14iil05 Platinum Gray 14 , Intel Core I5 1035g1 8gb De Ram 512gb Ssd, Intel Uhd Graphics G1 1920x1080px Windows 10 Home",
+      "price": 779,
+      "thumbnail": "http://http2.mlstatic.com/D_683033-MLA46388971839_062021-I.jpg"
+    },
+    {
+      "id": "MLU608598784",
+      "title": "Notebook Gamer Msi Thin Gf63 Negra 15.6 , Intel Core I5 9300h 8gb De Ram 256gb Ssd, Nvidia Geforce Gtx 1650 1920x1080px Windows 10 Home",
+      "price": 1189,
+      "thumbnail": "http://http2.mlstatic.com/D_872808-MLA47861913098_102021-I.jpg"
+    },
+    {
+      "id": "MLU607505314",
+      "title": "Notebook Hp 14-cf2033wm Silver 14 , Intel Pentium Silver N5030 4gb De Ram 128gb Ssd, Intel Uhd Graphics 605 1366x768px Windows 10 Home",
+      "price": 499,
+      "thumbnail": "http://http2.mlstatic.com/D_996235-MLA48964729303_012022-I.jpg"
+    },
+    {
+      "id": "MLU609202861",
+      "title": "Notebook Asus Nueva 15.6' I3-1005g1 256gb Ssd 8gb Win11 Loi",
+      "price": 587,
+      "thumbnail": "http://http2.mlstatic.com/D_787811-MLU49334888520_032022-O.jpg"
+    },
+    {
+      "id": "MLU479852499",
+      "title": "Notebook Acer Aspire 5 A515-43 Silver 15.6 , Amd Ryzen 3 3200u 4gb De Ram 128gb Ssd, Amd Radeon Vega 3 1920x1080px Windows 10 Home",
+      "price": 639,
+      "thumbnail": "http://http2.mlstatic.com/D_600241-MLA45744893124_042021-I.jpg"
+    }
+  ]
+}
