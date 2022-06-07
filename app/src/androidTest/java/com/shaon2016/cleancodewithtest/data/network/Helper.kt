@@ -13,11 +13,6 @@ import java.io.IOException
 import java.io.InputStreamReader
 
 object Helper {
-    fun getRetrofit(mockServer : MockWebServer) = Retrofit.Builder()
-        .baseUrl(mockServer.url("/")) // mock url
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
     /**
      * Sets which response the [MockWebServer] should return when a request is made
      */

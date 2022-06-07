@@ -7,7 +7,7 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 
-open class BaseActivityTest {
+abstract class BaseActivityTest {
     @get:Rule
     var hiltRule = HiltAndroidRule(this)
 
